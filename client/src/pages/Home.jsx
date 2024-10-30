@@ -44,7 +44,7 @@ const Home = () => {
         </div>
         
         {/* Mobile Nav Bar  */}
-        <MobileNav />
+        <MobileNav className=" max-h-screen absolute bottom-0 z-10 " />
     </div>
   );
 };
