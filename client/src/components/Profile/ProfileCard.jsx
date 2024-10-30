@@ -129,7 +129,7 @@ const ProfileCard = ({ profile }) => {
               <h3>{profile.name}</h3>
             </div>
 
-            {profile.profileUrl || profile.profileUrl === user?.id ? (
+            {profile.profileUrl || profile._id === user?.id ? (
               <Dialog>
               <DialogTrigger>
                 <div>
