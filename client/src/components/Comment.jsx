@@ -153,7 +153,7 @@ const Comment = ({ post }) => {
         <div className="w-full flex items-center justify-between gap-5">
         <Link to={`/profile/${post.userId._id}`} className='w-full flex items-center justify-between gap-5'>
             <div className="flex items-center gap-7">
-            <img src={img} alt="" className="w-12 border rounded-full" />
+                {post.userId.profileUrl ? <img src={`${SERVERURL}/${post.userId.profileUrl}`} alt={post.userId.name} className="w-12 border rounded-full" /> : <img src={img} alt={post.userId.name} className="w-12 border rounded-full" />}
             <div className="space-y-2">
                 <h2 className="font-semibold">{post.userId.name}</h2>
                 <p className="text-sm">{post.postContent}</p>
