@@ -74,7 +74,7 @@ const Register = () => {
         </form>
 
         <div>
-          <h3 className='text-sm font-semibold'>Already have an account? <Link to='/login' className='text-sm underline text-white '>login</Link> </h3>
+          <h3 className='text-sm font-semibold'>Already have an account? <Link to='/login' className='text-sm underline'>login</Link> </h3>
         </div>
       </div>
     </div>
