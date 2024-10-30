@@ -32,24 +32,13 @@ const ProfileCard = ({ profile }) => {
   const token = localStorage.getItem("token");
 
   useEffect(() => {
-    const checkFollowStatus = async () => {
-      try {
-        const response = await axios.get(
-          `{${SERVERURL}/api/user/isFollowing/${userId}/${profile?._id}`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-        setIsFollowed(response.data.isFollowing);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    checkFollowStatus();
-  }, [profile, userId, token]);
+    const followed = profile.followers.includes(user.id);
+    if(followed) {
+      setIsFollowed(true);
+    } else{
+      setIsFollowed(false);
+    }
+  }, [profile]);
 
   const handleFollowUser = async () => {
     const data = {
