@@ -90,8 +90,8 @@ const PostCard = ({ post, liked }) => {
           to={`/profile/${post.userId._id}`}
           className="flex items-center gap-7"
         >
-          {post.userId.profileUrl ? (
-            <img src={`${SERVERURL}/${post.userId.profileUrl}`} alt="" className="w-12 h-12 object-cover object-center border rounded-full" />
+          {post?.userId.profileUrl ? (
+            <img src={`${SERVERURL}/${post.userId.profileUrl}`} alt={post.userId.name} className="w-12 h-12 object-cover object-center border rounded-full" />
           ) : (
             <img src={img} alt="" className="w-12 border rounded-full" />
           )}
