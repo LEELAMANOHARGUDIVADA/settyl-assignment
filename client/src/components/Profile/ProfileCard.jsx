@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import img from "@/assets/default-dp.png";
 import { Button } from "../ui/button";
 import { useContext, useEffect, useState } from "react";
@@ -30,6 +30,7 @@ const ProfileCard = ({ profile }) => {
   const [file, setFile] = useState(null);
   const userId = user.id;
   const token = localStorage.getItem("token");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const followed = profile.followers.includes(user.id);
@@ -110,6 +111,10 @@ const ProfileCard = ({ profile }) => {
         }
       });
       console.log(response.data);
+      navigate('/');
+      toast({
+        title: "Profile Photo Changed Succesfully",
+        variant: "success"
     } catch (error) {
       console.error(error);
     }
@@ -124,11 +129,11 @@ const ProfileCard = ({ profile }) => {
               <h3>{profile.name}</h3>
             </div>
 
-            {profile.profileUrl ? (
+            {profile.profileUrl || profile.profileUrl === user?.id ? (
               <Dialog>
               <DialogTrigger>
                 <div>
-                  <img src={`${SERVERURL}/${profile.profileUrl}`} alt="" className="w-20 h-20 object-cover object-center rounded-full border" />
+                  <img src={`${SERVERURL}/${profile.profileUrl}`} alt={profile.name} className="w-20 h-20 object-cover object-center rounded-full border" />
                 </div>
               </DialogTrigger>
               {
