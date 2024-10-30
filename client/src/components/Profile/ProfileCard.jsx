@@ -24,6 +24,7 @@ import { ImageUpIcon } from "lucide-react";
 
 const ProfileCard = ({ profile }) => {
   const { user } = useContext(AuthContext);
+  const SERVERURL = import.meta.env.VITE_API_URL;
   const [isFollowed, setIsFollowed] = useState(false);
   const [followers, setFollowers] = useState(profile.followers.length);
   const [file, setFile] = useState(null);
@@ -34,7 +35,7 @@ const ProfileCard = ({ profile }) => {
     const checkFollowStatus = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8000/api/user/isFollowing/${userId}/${profile?._id}`,
+          `{${SERVERURL}/api/user/isFollowing/${userId}/${profile?._id}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -57,7 +58,7 @@ const ProfileCard = ({ profile }) => {
     };
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/user/follow-user",
+        `${SERVERURL}/api/user/follow-user`,
         data,
         {
           headers: {
@@ -86,7 +87,7 @@ const ProfileCard = ({ profile }) => {
     };
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/user/unfollow-user",
+        `${SERVERURL}/api/user/unfollow-user`,
         data,
         {
           headers: {
@@ -114,7 +115,7 @@ const ProfileCard = ({ profile }) => {
     const data = new FormData();
     data.append("file", file);
     try {
-      const response = await axios.post("http://localhost:8000/api/user/updateUserImage", data, {
+      const response = await axios.post(`${SERVERURL}/api/user/updateUserImage`, data, {
         headers: {
           "Authorization": `Bearer ${token}`
         }
@@ -138,7 +139,7 @@ const ProfileCard = ({ profile }) => {
               <Dialog>
               <DialogTrigger>
                 <div>
-                  <img src={`http://localhost:8000/${profile.profileUrl}`} alt="" className="w-20 h-20 object-cover object-center rounded-full border" />
+                  <img src={`${SERVERURL}/${profile.profileUrl}`} alt="" className="w-20 h-20 object-cover object-center rounded-full border" />
                 </div>
               </DialogTrigger>
               {
@@ -236,12 +237,12 @@ const ProfileCard = ({ profile }) => {
                 >
                   {fileExtension.toLowerCase().startsWith("mp4") ? (
                     <VideoFrameCapture
-                      videoSrc={`http://localhost:8000/${post.postUrl}`}
+                      videoSrc={`${SERVERURL}/${post.postUrl}`}
                       captureTime={5}
                     />
                   ) : (
                     <img
-                      src={`http://localhost:8000/${post.postUrl}`}
+                      src={`${SERVERURL}/${post.postUrl}`}
                       alt=""
                       className="w-full h-80 object-cover object-center"
                     />
