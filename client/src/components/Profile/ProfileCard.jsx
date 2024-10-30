@@ -115,6 +115,7 @@ const ProfileCard = ({ profile }) => {
       toast({
         title: "Profile Photo Changed Succesfully",
         variant: "success"
+      });
     } catch (error) {
       console.error(error);
     }
