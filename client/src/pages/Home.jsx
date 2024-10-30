@@ -23,7 +23,7 @@ const Home = () => {
   }
 
   return (
-    <div className="w-full h-screen flex flex-col items-start justify-center overflow-y-hidden">
+    <div className="w-full h-screen bg-black flex flex-col items-start justify-center overflow-y-hidden">
       <div className='w-[75%] h-full flex items-center justify-center '>
         <Sidebar className='fixed h-full hidden md:block'  />
         <Link to={`/`} className="md:hidden absolute top-2 left-5 z-10">
