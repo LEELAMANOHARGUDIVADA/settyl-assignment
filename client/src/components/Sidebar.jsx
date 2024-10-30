@@ -35,7 +35,7 @@ const Sidebar = () => {
           src={threads_light}
           alt="threads-clone"
           className="w-9 hover:scale-105 transform duration-150"
-        />)
+        /> };
       </Link>
 
       <ul className="mt-8 space-y-5 font-semibold">
