@@ -32,6 +32,7 @@ const Sidebar = () => {
           alt="threads"
           className="w-10 hover:scale-105 transform duration-150"
         />
+        <h3>Threads</h3>
       </Link>
 
       <ul className="mt-8 space-y-5 font-semibold">
