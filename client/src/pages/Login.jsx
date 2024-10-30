@@ -77,7 +77,7 @@ const Login = () => {
         </form>
 
         <div>
-          <h3 className='text-sm font-semibold'>Don't have an account? <Link to='/register' className='text-sm underline text-white '>register</Link> </h3>
+          <h3 className='text-sm font-semibold'>Don't have an account? <Link to='/register' className='text-sm underline '>register</Link> </h3>
         </div>
       </div>
     </div>
