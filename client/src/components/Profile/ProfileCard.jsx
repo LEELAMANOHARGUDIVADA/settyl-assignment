@@ -21,6 +21,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { ImageUpIcon } from "lucide-react";
+import ImageWithFallback from "../ImageWithFallback";
 
 const ProfileCard = ({ profile }) => {
   const { user } = useContext(AuthContext);
@@ -134,7 +135,7 @@ const ProfileCard = ({ profile }) => {
               <Dialog>
               <DialogTrigger>
                 <div>
-                  <img src={`${SERVERURL}/${profile.profileUrl}`} alt={profile.name} className="w-20 h-20 object-cover object-center rounded-full border" />
+                  <ImageWithFallback src={`${SERVERURL}/${profile.profileUrl}`} fallbackSrc={img} alt={profile.name} className="w-20 h-20 object-cover object-center rounded-full border" />
                 </div>
               </DialogTrigger>
               {
